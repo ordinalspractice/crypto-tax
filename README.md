@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kalkulator Podatku od Transakcji Walutowych
 
-## Getting Started
+Aplikacja do obliczania podatku dochodowego od transakcji w walutach obcych, korzystająca z aktualnych kursów walut Narodowego Banku Polskiego.
 
-First, run the development server:
+## Funkcje
+
+- Dodawanie pojedynczych transakcji walutowych
+- Masowe dodawanie transakcji z pliku JSON
+- Automatyczne pobieranie kursów walut z API NBP
+- Konwersja wszystkich transakcji na złotówki (PLN)
+- Obliczanie podatku (19% stawka)
+- Szczegółowe podsumowanie transakcji
+
+## Technologie
+
+- Next.js 13+
+- React 18+
+- TypeScript
+- Tailwind CSS
+
+## Instalacja
 
 ```bash
+# Klonowanie repozytorium
+git clone https://github.com/twoje-repo/currency-tax-calculator.git
+cd currency-tax-calculator
+
+# Instalacja zależności
+npm install
+
+# Uruchomienie w trybie deweloperskim
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aplikacja będzie dostępna pod adresem [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Jak używać
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Dodaj transakcję, podając walutę, kwotę i datę
+2. Alternatywnie, wklej listę transakcji w formacie JSON
+3. Kliknij "Oblicz podatek"
+4. Sprawdź wyniki przeliczenia i kwotę podatku do zapłacenia
 
-## Learn More
+## Format danych JSON
 
-To learn more about Next.js, take a look at the following resources:
+```json
+[
+  {
+    "currency": "EUR",
+    "amount": 25.69,
+    "data": "15-03-2023"
+  },
+  {
+    "currency": "USD",
+    "amount": 100,
+    "data": "22-04-2023"
+  }
+]
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API NBP
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Aplikacja korzysta z oficjalnego API Narodowego Banku Polskiego do pobierania kursów walut.
+Dokumentacja API: [http://api.nbp.pl/](http://api.nbp.pl/)
 
-## Deploy on Vercel
+## Zastrzeżenie
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Aplikacja służy jedynie do celów informacyjnych i nie stanowi profesjonalnej porady podatkowej. Zawsze konsultuj się z księgowym lub doradcą podatkowym w kwestiach rozliczenia podatku.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Licencja
+
+MIT
